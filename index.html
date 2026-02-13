@@ -104,7 +104,7 @@ h2 {
     font-weight: 400;
 }
 
-/* Main Button */
+/* Proposal Button */
 button {
     margin-top: 25px;
     padding: 14px 28px;
@@ -200,26 +200,53 @@ function playMusic() {
     document.getElementById("bgMusic").play();
 }
 
-/* Anniversary Counter */
-var weddingDate = new Date("Dec 31, 2023 00:00:00").getTime();
+/* Anniversary Counter - 31 Dec 2023 12:55 PM IST */
+var weddingDate = new Date("2023-12-31T12:55:00+05:30").getTime();
+
 setInterval(function() {
   var now = new Date().getTime();
   var diff = now - weddingDate;
+
   var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
   document.getElementById("anniversary").innerHTML =
-  "💎 Married for: " + days + " beautiful days together";
+  "💎 Together for: " +
+  days + " days " +
+  hours + " hours " +
+  minutes + " minutes " +
+  seconds + " seconds ❤️";
 }, 1000);
 
-/* Valentine Countdown */
-var valentine = new Date("Feb 14, 2026 19:00:00").getTime();
+
+/* Valentine Countdown - 14 Feb 2026 7PM IST */
+var valentine = new Date("2026-02-14T19:00:00+05:30").getTime();
+
 setInterval(function() {
   var now = new Date().getTime();
   var distance = valentine - now;
+
+  if (distance < 0) {
+      document.getElementById("countdown").innerHTML =
+      "❤️ It's Valentine Time, My Love ❤️";
+      return;
+  }
+
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
   document.getElementById("countdown").innerHTML =
-  "⏳ Countdown to Our Valentine Date: " + days + " days " + hours + " hours";
+  "⏳ Countdown to Our Valentine Date: " +
+  days + " days " +
+  hours + " hours " +
+  minutes + " minutes " +
+  seconds + " seconds 💖";
 }, 1000);
+
 
 /* Floating Hearts */
 function createHeart() {
@@ -248,13 +275,14 @@ setInterval(createPetal, 800);
 
 /* Secret Message */
 function secretMessage() {
-    alert("Anjum ❤️ Since 31-12-2023, my life became my favorite love story. - Yours, Asif");
+    alert("Anjum ❤️ Since 31-12-2023 12:55 PM, my life became my favorite love story. - Yours, Asif");
 }
 
 /* Proposal */
 function marryAgain() {
     alert("Anjum, I choose you today, tomorrow and forever. Will you marry me again? ❤️ - Asif");
 }
+
 </script>
 
 </body>
