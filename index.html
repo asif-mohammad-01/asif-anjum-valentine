@@ -2,6 +2,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+<!-- VERY IMPORTANT FOR MOBILE -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Asif ❤️ Anjum - Forever</title>
 
 <!-- Romantic Google Fonts -->
@@ -21,16 +25,16 @@ body {
 /* Headings */
 h1 {
     font-family: 'Great Vibes', cursive;
-    font-size: 60px;
+    font-size: clamp(38px, 8vw, 60px);
     margin-top: 20px;
-    letter-spacing: 2px;
     animation: glow 2s ease-in-out infinite alternate;
 }
 
 h2 {
     font-weight: 300;
-    font-size: 22px;
+    font-size: clamp(16px, 4vw, 22px);
     margin-top: 10px;
+    padding: 0 15px;
 }
 
 @keyframes glow {
@@ -40,16 +44,15 @@ h2 {
 
 /* Shayari */
 .shayari {
-    font-size: 20px;
-    margin: 25px;
-    line-height: 1.8;
-    font-weight: 300;
+    font-size: clamp(16px, 4vw, 20px);
+    margin: 20px;
+    line-height: 1.7;
 }
 
-/* Music Button */
-.music-btn {
+/* Buttons */
+button, .music-btn {
     margin-top: 20px;
-    padding: 12px 28px;
+    padding: 14px 26px;
     border-radius: 30px;
     border: none;
     font-size: 16px;
@@ -58,76 +61,53 @@ h2 {
     color: #ff0844;
     font-weight: 600;
     transition: 0.3s;
-    box-shadow: 0 0 15px rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(255,255,255,0.6);
 }
 
-.music-btn:hover {
+button:hover, .music-btn:hover {
     background: #ffe6ec;
     transform: scale(1.05);
 }
 
-/* Animated Photo */
+/* Photo Section */
 .photo-container {
-    margin-top: 30px;
+    margin-top: 25px;
+    padding: 0 15px;
 }
 
 .photo-frame {
     display: inline-block;
-    padding: 10px;
-    border-radius: 25px;
+    padding: 8px;
+    border-radius: 20px;
     background: linear-gradient(45deg, #fff, #ffd700);
     animation: floatImage 4s ease-in-out infinite;
-    box-shadow: 0 0 30px rgba(255,255,255,0.8);
-    transition: transform 0.4s;
-}
-
-.photo-frame:hover {
-    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(255,255,255,0.7);
 }
 
 .photo-frame img {
-    width: 260px;
-    border-radius: 20px;
-    display: block;
+    width: 100%;
+    max-width: 280px;
+    border-radius: 18px;
 }
 
 @keyframes floatImage {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-8px); }
     100% { transform: translateY(0px); }
 }
 
 /* Counters */
 .counter {
     margin-top: 15px;
-    font-size: 18px;
-    font-weight: 400;
-}
-
-/* Proposal Button */
-button {
-    margin-top: 25px;
-    padding: 14px 28px;
-    border-radius: 30px;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    background: white;
-    color: #ff0844;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: #ffe6ec;
-    transform: scale(1.05);
+    font-size: clamp(14px, 4vw, 18px);
+    padding: 0 15px;
 }
 
 /* Floating Hearts */
 .heart {
     position: fixed;
     bottom: -10px;
-    font-size: 22px;
+    font-size: 20px;
     animation: floatUp 6s linear infinite;
 }
 
@@ -136,32 +116,15 @@ button:hover {
     100% { transform: translateY(-100vh); opacity: 0; }
 }
 
-/* Rose Petals */
 @keyframes fall {
     0% { transform: translateY(0); opacity: 1; }
     100% { transform: translateY(100vh); opacity: 0; }
-}
-
-/* Fireworks */
-.firework {
-    position: fixed;
-    width: 8px;
-    height: 8px;
-    background: gold;
-    border-radius: 50%;
-    animation: explode 1s ease-out forwards;
-}
-
-@keyframes explode {
-    from { transform: scale(1); opacity: 1; }
-    to { transform: scale(18); opacity: 0; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- Music Button -->
 <button class="music-btn" onclick="playMusic()">💖 Click for Love Music 💖</button>
 
 <audio loop id="bgMusic">
@@ -175,10 +138,7 @@ button:hover {
 🌹 "Teri mohabbat meri taqdeer ban gayi,<br>
 Tera saath meri zanjeer ban gayi,<br>
 Jo maanga tha Rab se dua mein,<br>
-Woh Anjum meri zindagi ki tasveer ban gayi." ❤️<br><br>
-
-🎬 "Agar main SRK hota… haath faila ke kehta…<br>
-Anjum… main tumhe har janam mein chunta." 😌
+Woh Anjum meri zindagi ki tasveer ban gayi." ❤️
 </div>
 
 <div class="photo-container">
@@ -195,12 +155,11 @@ Anjum… main tumhe har janam mein chunta." 😌
 
 <script>
 
-/* Play Music */
 function playMusic() {
     document.getElementById("bgMusic").play();
 }
 
-/* Anniversary Counter - 31 Dec 2023 12:55 PM IST */
+/* Anniversary - 31 Dec 2023 12:55 PM IST */
 var weddingDate = new Date("2023-12-31T12:55:00+05:30").getTime();
 
 setInterval(function() {
@@ -213,15 +172,13 @@ setInterval(function() {
   var seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
   document.getElementById("anniversary").innerHTML =
-  "💎 Together for: " +
-  days + " days " +
-  hours + " hours " +
-  minutes + " minutes " +
-  seconds + " seconds ❤️";
+  "💎 Together for: " + days + "d " +
+  hours + "h " +
+  minutes + "m " +
+  seconds + "s ❤️";
 }, 1000);
 
-
-/* Valentine Countdown - 14 Feb 2026 7PM IST */
+/* Valentine Countdown */
 var valentine = new Date("2026-02-14T19:00:00+05:30").getTime();
 
 setInterval(function() {
@@ -230,7 +187,7 @@ setInterval(function() {
 
   if (distance < 0) {
       document.getElementById("countdown").innerHTML =
-      "❤️ It's Valentine Time, My Love ❤️";
+      "❤️ It's Valentine Time ❤️";
       return;
   }
 
@@ -240,13 +197,11 @@ setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   document.getElementById("countdown").innerHTML =
-  "⏳ Countdown to Our Valentine Date: " +
-  days + " days " +
-  hours + " hours " +
-  minutes + " minutes " +
-  seconds + " seconds 💖";
+  "⏳ " + days + "d " +
+  hours + "h " +
+  minutes + "m " +
+  seconds + "s 💖";
 }, 1000);
-
 
 /* Floating Hearts */
 function createHeart() {
@@ -257,30 +212,14 @@ function createHeart() {
     document.body.appendChild(heart);
     setTimeout(() => heart.remove(), 6000);
 }
-setInterval(createHeart, 300);
+setInterval(createHeart, 400);
 
-/* Rose Petals */
-function createPetal() {
-    const petal = document.createElement("div");
-    petal.innerHTML = "🌹";
-    petal.style.position = "fixed";
-    petal.style.top = "-20px";
-    petal.style.left = Math.random() * 100 + "vw";
-    petal.style.fontSize = "20px";
-    petal.style.animation = "fall 6s linear forwards";
-    document.body.appendChild(petal);
-    setTimeout(() => petal.remove(), 6000);
-}
-setInterval(createPetal, 800);
-
-/* Secret Message */
 function secretMessage() {
     alert("Anjum ❤️ Since 31-12-2023 12:55 PM, my life became my favorite love story. - Yours, Asif");
 }
 
-/* Proposal */
 function marryAgain() {
-    alert("Anjum, I choose you today, tomorrow and forever. Will you marry me again? ❤️ - Asif");
+    alert("Anjum, I choose you today, tomorrow and forever. ❤️ - Asif");
 }
 
 </script>
